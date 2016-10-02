@@ -1,0 +1,21 @@
+{% set name = "chasm" %}
+{% set version = "1.4" %}
+{% set sha256 = "2bfca89ae73a637dbc91e0492daf19baf6ad8cd03c939ce29b225bff824380d3" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: chasm_1.4.RC3.tar.gz
+  url: http://sourceforge.net/projects/chasm-interop/files/chasm_1.4.RC3.tar.gz
+  sha256:  {{ sha256 }}
+
+requirements:
+  build:
+    - gcc
+  run:
+    - libgcc
+
+build:
+  number: 0
