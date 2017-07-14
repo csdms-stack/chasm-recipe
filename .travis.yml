@@ -1,9 +1,11 @@
 language: generic
 os:
-# - linux
+- linux
 - osx
+osx_image: xcode6.4
 env:
   global:
+  - MACOSX_DEPLOYMENT_TARGET="10.9"
   - CONDA_PREFIX=$HOME/miniconda
   - MINICONDA_URL_BASE="https://repo.continuum.io/miniconda/Miniconda2-latest"
   - TRAVIS_PYTHON_VERSION="2.7"
@@ -35,5 +37,4 @@ script:
 after_success:
 - curl https://raw.githubusercontent.com/csdms/ci-tools/master/anaconda_upload.py
   > $HOME/anaconda_upload.py
-- echo $ANACONDA_TOKEN | python $HOME/anaconda_upload.py ./recipe --channel=main --org=csdms-stack
-  --token=-
+- echo $ANACONDA_TOKEN | python $HOME/anaconda_upload.py ./recipe --channel=main --org=csdms-stack --token=-
